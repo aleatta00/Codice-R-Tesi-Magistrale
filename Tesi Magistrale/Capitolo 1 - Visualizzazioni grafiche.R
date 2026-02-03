@@ -1,7 +1,7 @@
 ###############################################################
 # Appendice – Codice R per le visualizzazioni del Capitolo 1
 # Copule: funzioni di ripartizione C(u,v) e densità c(u,v)
-# Griglia uniforme su (0,1)^2 con trimming ai bordi per stabilità.
+# Griglia uniforme su (0,1)^2 evitando i bordi per stabilità.
 ###############################################################
 
 library(copula)
@@ -33,7 +33,7 @@ clean_values <- function(x) {
 }
 
 # -------------------------------------------------------------
-# Plot 2D (contour filled); opzionale trasformazione log per densità
+# Plot 2D curve di livello
 # -------------------------------------------------------------
 plot2D <- function(values, title, log_scale = FALSE) {
   df <- grid
@@ -136,3 +136,4 @@ for (name in names(arch)) {
   plot3D(Cval, paste("Copula", name, "– 3D"))
   plot3D(Dval, paste("Densità della copula", name, "– 3D"), log_scale = TRUE)
 }
+
